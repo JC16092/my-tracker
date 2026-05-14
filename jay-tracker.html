@@ -32,8 +32,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+
+/* Subtle grid bg */
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+
 .app{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 20px 80px}
+
+/* Header */
 header{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:32px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
 .header-left h1{font-family:var(--font-display);font-size:38px;font-weight:400;letter-spacing:-0.5px;color:var(--text);line-height:1}
 .header-left h1 em{color:var(--accent);font-style:italic}
@@ -43,6 +48,8 @@ header{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:3
 .streak-num{font-family:var(--font-display);font-size:28px;color:var(--accent);line-height:1}
 .streak-label{font-size:11px;color:var(--text2);font-family:var(--font-mono)}
 .date-display{font-size:11px;color:var(--text3);font-family:var(--font-mono);margin-top:8px;text-align:right}
+
+/* Summary cards */
 .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:28px}
 .summary-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;transition:border-color .2s}
 .summary-card:hover{border-color:var(--border2)}
@@ -51,13 +58,21 @@ header{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:3
 .summary-card .s-sub{font-size:11px;color:var(--text2);margin-top:4px}
 .summary-card.good .s-value{color:var(--green)}
 .summary-card.warn .s-value{color:var(--amber)}
+
+/* Nav */
 nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .nav-btn{padding:8px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--r);color:var(--text2);font-family:var(--font-body);font-size:13px;cursor:pointer;transition:all .15s;letter-spacing:.02em}
 .nav-btn:hover{background:var(--bg3);color:var(--text);border-color:var(--border2)}
 .nav-btn.active{background:var(--accent);color:#0f0e0c;border-color:var(--accent);font-weight:600}
+
+/* Panels */
 .panel{display:none}.panel.active{display:block}
+
+/* Cards */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:14px}
 .card-title{font-size:11px;color:var(--text3);font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+
+/* Tasks */
 .task-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
 .task-item:last-child{border-bottom:none;padding-bottom:0}
 .task-cb{width:18px;height:18px;cursor:pointer;accent-color:var(--accent);flex-shrink:0}
@@ -71,6 +86,8 @@ nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .task-tag.masters{background:rgba(212,137,74,.12);color:#d4894a;border-color:rgba(212,137,74,.2)}
 .task-remove{background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;padding:0 4px;line-height:1;transition:color .15s}
 .task-remove:hover{color:var(--red)}
+
+/* Goals */
 .goal-item{padding:14px 0;border-bottom:1px solid var(--border)}
 .goal-item:last-child{border-bottom:none;padding-bottom:0}
 .goal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:8px}
@@ -85,6 +102,8 @@ nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .goal-update input:focus{outline:none;border-color:var(--accent)}
 .goal-update button{padding:6px 12px;background:transparent;border:1px solid var(--border);border-radius:var(--r);color:var(--text2);font-size:12px;cursor:pointer;font-family:var(--font-body);transition:all .15s}
 .goal-update button:hover{background:var(--accent);color:#0f0e0c;border-color:var(--accent)}
+
+/* Savings */
 .savings-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
 .savings-row label{font-size:12px;color:var(--text2);min-width:150px;font-family:var(--font-mono)}
 .savings-row input{padding:8px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-size:13px;font-family:var(--font-mono);width:140px}
@@ -96,6 +115,8 @@ nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .savings-table td input{background:transparent;border:none;color:var(--text);font-family:var(--font-mono);font-size:12px;width:100%;padding:0}
 .savings-table td input:focus{outline:none;color:var(--accent)}
 .savings-table tr:hover td{background:var(--bg3)}
+
+/* Journal */
 .journal-textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:var(--font-body);font-size:13px;padding:12px 14px;resize:vertical;min-height:100px;line-height:1.6;transition:border-color .2s}
 .journal-textarea:focus{outline:none;border-color:var(--accent)}
 .log-entry{padding:14px 0;border-bottom:1px solid var(--border)}
@@ -103,6 +124,8 @@ nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .log-date{font-size:11px;color:var(--accent);font-family:var(--font-mono);margin-bottom:4px;display:flex;justify-content:space-between}
 .log-tasks-done{font-size:11px;color:var(--text3);font-family:var(--font-mono)}
 .log-text{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+
+/* Timeline */
 .timeline{position:relative;padding-left:24px}
 .tl-line{position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--border2)}
 .tl-item{position:relative;padding:0 0 20px 20px}
@@ -112,21 +135,38 @@ nav{display:flex;gap:4px;margin-bottom:24px;flex-wrap:wrap}
 .tl-event{font-size:13px;color:var(--text);font-weight:500;margin-bottom:1px}
 .tl-note{font-size:11px;color:var(--text2)}
 .tl-amount{font-family:var(--font-mono);font-size:11px;margin-top:2px}
+
+/* Buttons */
 .btn{padding:9px 18px;border-radius:var(--r);font-family:var(--font-body);font-size:13px;cursor:pointer;transition:all .15s;border:1px solid var(--border)}
 .btn-primary{background:var(--accent);color:#0f0e0c;border-color:var(--accent);font-weight:600}
 .btn-primary:hover{background:var(--accent2);border-color:var(--accent2)}
 .btn-ghost{background:transparent;color:var(--text2)}
 .btn-ghost:hover{background:var(--bg3);color:var(--text);border-color:var(--border2)}
+
+/* Alerts */
 .alert{padding:10px 14px;border-radius:var(--r);font-size:12px;margin-top:12px;font-family:var(--font-mono)}
 .alert-ok{background:rgba(92,168,122,.1);color:#5ca87a;border:1px solid rgba(92,168,122,.2)}
 .alert-warn{background:rgba(212,137,74,.1);color:#d4894a;border:1px solid rgba(212,137,74,.2)}
 .alert-danger{background:rgba(224,92,74,.1);color:#e05c4a;border:1px solid rgba(224,92,74,.2)}
+
+/* Save indicator */
 .save-badge{font-size:10px;font-family:var(--font-mono);color:var(--text3);transition:opacity .4s;opacity:0}
 .save-badge.show{opacity:1}
+
+/* Misc */
 .empty-state{text-align:center;padding:32px;color:var(--text3);font-size:13px}
 .flex-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.section-divider{height:1px;background:var(--border);margin:14px 0}
 input[type=number]::-webkit-inner-spin-button{opacity:.4}
-@media(max-width:600px){header{flex-direction:column;align-items:flex-start}.header-right{text-align:left}.date-display{text-align:left}h1{font-size:28px}}
+
+@media(max-width:600px){
+  header{flex-direction:column;align-items:flex-start}
+  .header-right{text-align:left}
+  .date-display{text-align:left}
+  h1{font-size:28px}
+}
+
+/* Page load animation */
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .app > *{animation:fadeUp .4s ease both}
 header{animation-delay:.05s}
@@ -137,18 +177,26 @@ nav{animation-delay:.15s}
 </head>
 <body>
 <div class="app">
+
   <header>
     <div class="header-left">
       <h1>Jay's <em>Goals</em> — 2027</h1>
       <div class="subtitle">TR · PTE · NAATI · Masters · Savings</div>
     </div>
     <div class="header-right">
-      <div class="streak-box"><div><div class="streak-num" id="streak-num">0</div><div class="streak-label">day streak</div></div></div>
+      <div class="streak-box">
+        <div>
+          <div class="streak-num" id="streak-num">0</div>
+          <div class="streak-label">day streak</div>
+        </div>
+      </div>
       <div class="date-display" id="date-display"></div>
       <div class="save-badge" id="save-badge">saved</div>
     </div>
   </header>
+
   <div class="summary-grid" id="summary-grid"></div>
+
   <nav>
     <button class="nav-btn active" onclick="showPanel('today',this)">Today</button>
     <button class="nav-btn" onclick="showPanel('goals',this)">Goals</button>
@@ -156,6 +204,8 @@ nav{animation-delay:.15s}
     <button class="nav-btn" onclick="showPanel('timeline',this)">Timeline</button>
     <button class="nav-btn" onclick="showPanel('journal',this)">Journal</button>
   </nav>
+
+  <!-- TODAY -->
   <div id="panel-today" class="panel active">
     <div class="card">
       <div class="card-title">Daily checklist</div>
@@ -167,96 +217,456 @@ nav{animation-delay:.15s}
     </div>
     <div class="card">
       <div class="card-title">Today's note</div>
-      <textarea class="journal-textarea" id="today-note" placeholder="What did you accomplish today?" oninput="schedSave()"></textarea>
+      <textarea class="journal-textarea" id="today-note" placeholder="What did you accomplish today? Any blockers? How are you feeling about your progress?" oninput="schedSave()"></textarea>
       <div class="flex-row">
         <button class="btn btn-primary" onclick="saveDay()">Save day</button>
         <span style="font-size:11px;color:var(--text3);font-family:var(--font-mono)" id="tasks-done-count"></span>
       </div>
     </div>
   </div>
+
+  <!-- GOALS -->
   <div id="panel-goals" class="panel">
-    <div class="card"><div class="card-title">Goal progress</div><div id="goals-list"></div></div>
+    <div class="card">
+      <div class="card-title">Goal progress</div>
+      <div id="goals-list"></div>
+    </div>
   </div>
+
+  <!-- SAVINGS -->
   <div id="panel-savings" class="panel">
     <div class="card">
       <div class="card-title">Savings calculator</div>
-      <div class="savings-row"><label>Total saved so far ($)</label><input type="number" id="inp-saved" placeholder="0" oninput="onSavingsInput()"></div>
-      <div class="savings-row"><label>Monthly income ($)</label><input type="number" id="inp-income" placeholder="e.g. 3500" oninput="onSavingsInput()"></div>
-      <div class="savings-row"><label>Monthly expenses ($)</label><input type="number" id="inp-expenses" placeholder="e.g. 2000" oninput="onSavingsInput()"></div>
+      <div class="savings-row">
+        <label>Total saved so far ($)</label>
+        <input type="number" id="inp-saved" placeholder="0" oninput="onSavingsInput()">
+      </div>
+      <div class="savings-row">
+        <label>Monthly income ($)</label>
+        <input type="number" id="inp-income" placeholder="e.g. 3500" oninput="onSavingsInput()">
+      </div>
+      <div class="savings-row">
+        <label>Monthly expenses ($)</label>
+        <input type="number" id="inp-expenses" placeholder="e.g. 2000" oninput="onSavingsInput()">
+      </div>
       <div id="savings-alert"></div>
-      <div class="flex-row"><button class="btn btn-primary" onclick="saveSavings()">Save</button></div>
+      <div class="flex-row">
+        <button class="btn btn-primary" onclick="saveSavings()">Save</button>
+      </div>
     </div>
     <div class="card">
       <div class="card-title">Monthly log</div>
       <div style="overflow-x:auto">
-      <table class="savings-table"><thead><tr><th>Month</th><th>Income</th><th>Expenses</th><th>Saved</th><th>Running total</th><th>Note</th></tr></thead><tbody id="savings-tbody"></tbody></table>
+      <table class="savings-table" id="savings-table">
+        <thead><tr>
+          <th>Month</th><th>Income</th><th>Expenses</th><th>Saved</th><th>Running total</th><th>Note</th>
+        </tr></thead>
+        <tbody id="savings-tbody"></tbody>
+      </table>
       </div>
-      <div class="flex-row" style="margin-top:12px"><button class="btn btn-ghost" onclick="saveSavingsTable()">Save table</button></div>
+      <div class="flex-row" style="margin-top:12px">
+        <button class="btn btn-ghost" onclick="saveSavingsTable()">Save table</button>
+      </div>
     </div>
-    <div class="card"><div class="card-title">Goal allocation</div><div id="goal-allocation"></div></div>
+    <div class="card">
+      <div class="card-title">Goal allocation</div>
+      <div id="goal-allocation"></div>
+    </div>
   </div>
+
+  <!-- TIMELINE -->
   <div id="panel-timeline" class="panel">
     <div class="card">
       <div class="card-title">Key milestones</div>
       <div class="timeline">
         <div class="tl-line"></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#5a8ec8"></div><div class="tl-date">NOW — AUG 2026</div><div class="tl-event">PTE &amp; NAATI preparation</div><div class="tl-note">Study daily. Mock tests weekly. Book exam slot early.</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#5ca87a"></div><div class="tl-date">JUL — SEP 2026</div><div class="tl-event">Sit PTE Academic exam</div><div class="tl-note">Target 80+ in all four bands.</div><div class="tl-amount" style="color:#5ca87a">~$400</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#5ca87a"></div><div class="tl-date">JUL — SEP 2026</div><div class="tl-event">Sit NAATI CCL exam</div><div class="tl-note">Register at naati.com.au. Practice dialogue interpreting daily.</div><div class="tl-amount" style="color:#5ca87a">~$800</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#d4894a"></div><div class="tl-date">OCT — NOV 2026</div><div class="tl-event">Finalise TR application documents</div><div class="tl-note">Skills assessment, EOI via SkillSelect, gather all evidence.</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#e05c4a"></div><div class="tl-date">DECEMBER 2026</div><div class="tl-event">Lodge TR visa application</div><div class="tl-note">Have $6,100 ready. $4,600 application fee + $1,500 buffer.</div><div class="tl-amount" style="color:#e05c4a">$6,100</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:var(--accent)"></div><div class="tl-date">JAN — MAR 2027</div><div class="tl-event">Masters enrolment + personal savings target</div><div class="tl-note">Enrol in Master of Education. Hit $5,000 personal savings buffer.</div><div class="tl-amount" style="color:var(--accent)">$5,000</div></div>
-        <div class="tl-item"><div class="tl-dot" style="background:#d4894a"></div><div class="tl-date">JUNE 2027</div><div class="tl-event">Master of Education begins</div><div class="tl-note">Semester 1 fees due. Check FEE-HELP / HECS eligibility first.</div><div class="tl-amount" style="color:#d4894a">~$21,200</div></div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#5a8ec8"></div>
+          <div class="tl-date">NOW — AUG 2026</div>
+          <div class="tl-event">PTE & NAATI preparation</div>
+          <div class="tl-note">Study daily. Mock tests weekly. Book exam slot early.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#5ca87a"></div>
+          <div class="tl-date">JUL — SEP 2026</div>
+          <div class="tl-event">Sit PTE Academic exam</div>
+          <div class="tl-note">Target 80+ in all four bands. Book at pearsonpte.com</div>
+          <div class="tl-amount" style="color:#5ca87a">~$400</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#5ca87a"></div>
+          <div class="tl-date">JUL — SEP 2026</div>
+          <div class="tl-event">Sit NAATI CCL exam</div>
+          <div class="tl-note">Register at naati.com.au. Practice dialogue interpreting daily.</div>
+          <div class="tl-amount" style="color:#5ca87a">~$800</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#d4894a"></div>
+          <div class="tl-date">OCT — NOV 2026</div>
+          <div class="tl-event">Finalise TR application documents</div>
+          <div class="tl-note">Skills assessment, EOI via SkillSelect, gather all evidence.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#e05c4a"></div>
+          <div class="tl-date">DECEMBER 2026</div>
+          <div class="tl-event">Lodge TR visa application</div>
+          <div class="tl-note">Have $6,100 ready. $4,600 application fee + $1,500 buffer.</div>
+          <div class="tl-amount" style="color:#e05c4a">$6,100</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--accent)"></div>
+          <div class="tl-date">JAN — MAR 2027</div>
+          <div class="tl-event">Masters enrolment + personal savings target</div>
+          <div class="tl-note">Enrol in Master of Education. Hit $5,000 personal savings buffer.</div>
+          <div class="tl-amount" style="color:var(--accent)">$5,000</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#d4894a"></div>
+          <div class="tl-date">JUNE 2027</div>
+          <div class="tl-event">Master of Education begins</div>
+          <div class="tl-note">Semester 1 fees due. Check FEE-HELP / HECS eligibility first.</div>
+          <div class="tl-amount" style="color:#d4894a">~$21,200</div>
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Useful links</div>
       <div style="display:flex;flex-direction:column;gap:10px">
-        <a href="https://pearsonpte.com" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">PTE Academic booking <span style="color:var(--text3)">pearsonpte.com →</span></a>
-        <a href="https://www.naati.com.au" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">NAATI registration <span style="color:var(--text3)">naati.com.au →</span></a>
-        <a href="https://immi.homeaffairs.gov.au/visas/working-in-australia/skillselect" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">SkillSelect / EOI <span style="color:var(--text3)">homeaffairs.gov.au →</span></a>
-        <a href="https://www.monash.edu/education" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;padding:8px 0">Monash Education faculty <span style="color:var(--text3)">monash.edu →</span></a>
+        <a href="https://pearsonpte.com" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">PTE Academic booking <span style="color:var(--text3)">pearsonpte.com →</span></a>
+        <a href="https://www.naati.com.au" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">NAATI registration <span style="color:var(--text3)">naati.com.au →</span></a>
+        <a href="https://immi.homeaffairs.gov.au/visas/working-in-australia/skillselect" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">SkillSelect / EOI <span style="color:var(--text3)">homeaffairs.gov.au →</span></a>
+        <a href="https://www.monash.edu/education" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:12px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0">Monash Education faculty <span style="color:var(--text3)">monash.edu →</span></a>
       </div>
     </div>
   </div>
+
+  <!-- JOURNAL -->
   <div id="panel-journal" class="panel">
-    <div class="card"><div class="card-title">Past entries</div><div id="journal-log"></div></div>
+    <div class="card">
+      <div class="card-title">Past entries</div>
+      <div id="journal-log"></div>
+    </div>
   </div>
+
 </div>
+
 <script>
-const GOALS=[{id:'tr',name:'TR application fees',target:6100,deadline:'Dec 2026',color:'#e05c4a',type:'$'},{id:'pte',name:'PTE exam (80+ each)',target:100,deadline:'Sep 2026',color:'#5ca87a',type:'%'},{id:'naati',name:'NAATI CCL exam',target:100,deadline:'Sep 2026',color:'#5a8ec8',type:'%'},{id:'buf',name:'Personal savings',target:5000,deadline:'Mar 2027',color:'#e8c87a',type:'$'},{id:'mast',name:'Masters sem 1 fees',target:21200,deadline:'Jun 2027',color:'#d4894a',type:'$'}];
-const MONTHS=['May 2026','Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026','Dec 2026','Jan 2027','Feb 2027','Mar 2027'];
-const DEFAULT_TASKS=[{id:'d1',label:'PTE Speaking practice (30 min)',tag:'pte',done:false},{id:'d2',label:'PTE Writing practice (30 min)',tag:'pte',done:false},{id:'d3',label:'NAATI dialogue practice (30 min)',tag:'naati',done:false},{id:'d4',label:'Transfer savings to account',tag:'savings',done:false},{id:'d5',label:'TR checklist / document prep',tag:'tr',done:false}];
-let S={tasks:deepClone(DEFAULT_TASKS),goalProgress:{tr:0,pte:0,naati:0,buf:0,mast:0},income:0,expenses:0,savedAmount:0,todayNote:'',log:[],streak:0,lastSaved:'',savingsTable:{}};
-function deepClone(x){return JSON.parse(JSON.stringify(x))}
-function todayStr(){return new Date().toISOString().slice(0,10)}
-function fmtDate(s){return new Date(s+'T00:00:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}
-function fmtMoney(n){return '$'+Math.round(n).toLocaleString()}
-function save(){localStorage.setItem('jay-tracker-v2',JSON.stringify(S));const b=document.getElementById('save-badge');b.textContent='saved '+new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'});b.classList.add('show');clearTimeout(save._t);save._t=setTimeout(()=>b.classList.remove('show'),2500)}
-function load(){try{const raw=localStorage.getItem('jay-tracker-v2');if(raw){const d=JSON.parse(raw);S=Object.assign(S,d);if(!S.tasks||!S.tasks.length)S.tasks=deepClone(DEFAULT_TASKS)}}catch(e){}}
+const GOALS = [
+  {id:'tr',   name:'TR application fees',  target:6100,  deadline:'Dec 2026', color:'#e05c4a', type:'$'},
+  {id:'pte',  name:'PTE exam (80+ each)',   target:100,   deadline:'Sep 2026', color:'#5ca87a', type:'%'},
+  {id:'naati',name:'NAATI CCL exam',        target:100,   deadline:'Sep 2026', color:'#5a8ec8', type:'%'},
+  {id:'buf',  name:'Personal savings',      target:5000,  deadline:'Mar 2027', color:'#e8c87a', type:'$'},
+  {id:'mast', name:'Masters sem 1 fees',    target:21200, deadline:'Jun 2027', color:'#d4894a', type:'$'},
+];
+
+const MONTHS = ['May 2026','Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026','Dec 2026','Jan 2027','Feb 2027','Mar 2027'];
+
+const DEFAULT_TASKS = [
+  // PTE — Speaking (do every day)
+  {id:'d1', label:'PTE · Read Aloud — 5 passages out loud (15 min)', tag:'pte', done:false},
+  {id:'d2', label:'PTE · Repeat Sentence — 10 audio sentences (10 min)', tag:'pte', done:false},
+  {id:'d3', label:'PTE · Describe Image — 3 images, 40 sec each (15 min)', tag:'pte', done:false},
+  {id:'d4', label:'PTE · Re-tell Lecture — 2 recordings (10 min)', tag:'pte', done:false},
+  // PTE — Writing
+  {id:'d5', label:'PTE · Summarise Written Text — 1 passage (10 min)', tag:'pte', done:false},
+  {id:'d6', label:'PTE · Essay Writing — 1 topic, 200–300 words (20 min)', tag:'pte', done:false},
+  // PTE — Reading + Listening
+  {id:'d7', label:'PTE · Reading — Fill blanks + re-order paragraphs (20 min)', tag:'pte', done:false},
+  {id:'d8', label:'PTE · Listening — Summarise 2 spoken texts (15 min)', tag:'pte', done:false},
+  // NAATI
+  {id:'d9', label:'NAATI · Dialogue — 2 full role-play sessions (30 min)', tag:'naati', done:false},
+  {id:'d10',label:'NAATI · Vocabulary — 10 new terms in target language (15 min)', tag:'naati', done:false},
+  {id:'d11',label:'NAATI · Listen to news/podcast in both languages (15 min)', tag:'naati', done:false},
+  // Savings
+  {id:'d12',label:'Savings · Log today\'s expenses in budget', tag:'savings', done:false},
+  {id:'d13',label:'Savings · Transfer money to savings account (payday only)', tag:'savings', done:false},
+  // TR Visa
+  {id:'d14',label:'TR · Complete 1 document or checklist item today', tag:'tr', done:false},
+  {id:'d15',label:'TR · Review skills assessment progress / research 1 requirement', tag:'tr', done:false},
+  // Masters
+  {id:'d16',label:'Masters · Read 1 article on FEE-HELP or Masters enrolment process', tag:'masters', done:false},
+];
+
+let S = {
+  tasks: deepClone(DEFAULT_TASKS),
+  goalProgress: {tr:0,pte:0,naati:0,buf:0,mast:0},
+  income: 0, expenses: 0, savedAmount: 0,
+  todayNote: '',
+  log: [],
+  streak: 0, lastSaved: '',
+  savingsTable: {},
+};
+
+function deepClone(x){ return JSON.parse(JSON.stringify(x)); }
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function fmtDate(s){ return new Date(s+'T00:00:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
+function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
+
+function save(){
+  localStorage.setItem('jay-tracker-v2', JSON.stringify(S));
+  const b = document.getElementById('save-badge');
+  b.textContent = 'saved ' + new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'});
+  b.classList.add('show');
+  clearTimeout(save._t);
+  save._t = setTimeout(()=>b.classList.remove('show'), 2500);
+}
+function load(){
+  try{
+    const raw = localStorage.getItem('jay-tracker-v2');
+    if(raw){ const d=JSON.parse(raw); S=Object.assign(S,d); if(!S.tasks||!S.tasks.length) S.tasks=deepClone(DEFAULT_TASKS); }
+  }catch(e){}
+}
+
 let schedTimer=null;
-function schedSave(){clearTimeout(schedTimer);schedTimer=setTimeout(save,1000)}
-function render(){document.getElementById('streak-num').textContent=S.streak||0;document.getElementById('date-display').textContent=fmtDate(todayStr());renderSummary();renderTasks();renderGoals();renderSavingsCalc();renderSavingsTable();renderAllocation();renderJournal()}
-function renderSummary(){const done=S.tasks.filter(t=>t.done).length,total=S.tasks.length,saved=S.savedAmount||0,needed=33500,surplus=(S.income||0)-(S.expenses||0),months=22,proj=saved+surplus*months,pct=Math.min(100,Math.round(saved/needed*100));document.getElementById('summary-grid').innerHTML=`<div class="summary-card"><div class="s-label">today</div><div class="s-value">${done}/${total}</div><div class="s-sub">tasks done</div></div><div class="summary-card"><div class="s-label">saved</div><div class="s-value">${fmtMoney(saved)}</div><div class="s-sub">${pct}% of ${fmtMoney(needed)}</div></div><div class="summary-card"><div class="s-label">monthly surplus</div><div class="s-value">${surplus>0?fmtMoney(surplus):'—'}</div><div class="s-sub">income − expenses</div></div><div class="summary-card ${proj>=needed?'good':'warn'}"><div class="s-label">projected mar 2027</div><div class="s-value">${fmtMoney(Math.max(0,proj))}</div><div class="s-sub">${proj>=needed?'on track':'needs boost'}</div></div>`}
-function renderTasks(){const el=document.getElementById('task-list');if(!S.tasks.length){el.innerHTML='<div class="empty-state">No tasks.</div>';return}el.innerHTML=S.tasks.map(t=>`<div class="task-item"><input type="checkbox" class="task-cb" ${t.done?'checked':''} onchange="toggleTask('${t.id}',this.checked)"><span class="task-label${t.done?' done':''}">${t.label}</span><span class="task-tag ${t.tag}">${t.tag.toUpperCase()}</span>${t.custom?`<button class="task-remove" onclick="removeTask('${t.id}')">×</button>`:''}</div>`).join('');const done=S.tasks.filter(t=>t.done).length;document.getElementById('tasks-done-count').textContent=`${done} of ${S.tasks.length} done`;const n=document.getElementById('today-note');if(n&&n.value!==S.todayNote)n.value=S.todayNote||''}
-function toggleTask(id,checked){const t=S.tasks.find(x=>x.id===id);if(t){t.done=checked;renderTasks();renderSummary();schedSave()}}
-function removeTask(id){S.tasks=S.tasks.filter(t=>t.id!==id);renderTasks();schedSave()}
-function addTask(){const label=prompt('Task name:');if(!label||!label.trim())return;const tagRaw=prompt('Category (pte/naati/tr/savings/masters/other):','other')||'other';S.tasks.push({id:'c'+Date.now(),label:label.trim(),tag:tagRaw.trim().toLowerCase(),done:false,custom:true});renderTasks();schedSave()}
-function resetTasks(){if(!confirm('Reset all checkboxes for a new day?'))return;S.tasks=S.tasks.map(t=>({...t,done:false}));renderTasks();schedSave()}
-function saveDay(){S.todayNote=document.getElementById('today-note').value;const today=todayStr(),entry={date:today,note:S.todayNote,tasks:deepClone(S.tasks),savings:S.savedAmount},idx=(S.log||[]).findIndex(e=>e.date===today);if(idx>=0)S.log[idx]=entry;else{S.log=S.log||[];S.log.push(entry)}if(S.lastSaved!==today){S.streak=(S.streak||0)+1;S.lastSaved=today}save();renderSummary();document.getElementById('streak-num').textContent=S.streak;alert('Day saved! Great work.')}
-function renderGoals(){document.getElementById('goals-list').innerHTML=GOALS.map(g=>{const prog=S.goalProgress[g.id]||0,pct=Math.min(100,Math.round(prog/g.target*100)),dispProg=g.type==='$'?fmtMoney(prog):`${prog}%`,dispTarget=g.type==='$'?fmtMoney(g.target):`${g.target}%`;return`<div class="goal-item"><div class="goal-header"><div class="goal-name">${g.name}</div><div class="goal-amount">${dispProg} / ${dispTarget}</div></div><div class="goal-deadline">Deadline: ${g.deadline}</div><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${g.color}"></div></div><div class="bar-meta"><span>${pct}% complete</span><span>${dispTarget}</span></div><div class="goal-update"><input type="number" id="gi-${g.id}" placeholder="${g.type==='$'?'amount':'percent'}"><button onclick="updateGoal('${g.id}')">Update</button></div></div>`}).join('')}
-function updateGoal(id){const v=parseFloat(document.getElementById('gi-'+id).value);if(isNaN(v)||v<0)return;S.goalProgress[id]=v;if(id==='buf')S.savedAmount=v;document.getElementById('gi-'+id).value='';renderGoals();renderSummary();renderAllocation();save()}
-function onSavingsInput(){const saved=parseFloat(document.getElementById('inp-saved').value)||0,income=parseFloat(document.getElementById('inp-income').value)||0,expenses=parseFloat(document.getElementById('inp-expenses').value)||0,surplus=income-expenses,proj=saved+surplus*22,needed=33500,min=Math.ceil((needed-saved)/22);let html='';if(income>0||saved>0){if(proj>=needed)html=`<div class="alert alert-ok">On track — projected ${fmtMoney(proj)} by Mar 2027</div>`;else html=`<div class="alert alert-warn">Shortfall of ${fmtMoney(needed-proj)}. Need ~${fmtMoney(min)}/mo.</div>`}document.getElementById('savings-alert').innerHTML=html;renderAllocationFromInputs(saved,income,expenses)}
-function saveSavings(){const saved=parseFloat(document.getElementById('inp-saved').value),income=parseFloat(document.getElementById('inp-income').value),expenses=parseFloat(document.getElementById('inp-expenses').value);if(!isNaN(saved)){S.savedAmount=saved;S.goalProgress.buf=saved}if(!isNaN(income))S.income=income;if(!isNaN(expenses))S.expenses=expenses;save();renderSummary();renderGoals();renderAllocation();const b=event.target;b.textContent='Saved!';setTimeout(()=>b.textContent='Save',1500)}
-function renderSavingsCalc(){const si=document.getElementById('inp-saved'),ii=document.getElementById('inp-income'),ei=document.getElementById('inp-expenses');if(si&&!si.dataset.loaded){si.value=S.savedAmount||'';si.dataset.loaded='1'}if(ii&&!ii.dataset.loaded){ii.value=S.income||'';ii.dataset.loaded='1'}if(ei&&!ei.dataset.loaded){ei.value=S.expenses||'';ei.dataset.loaded='1'}onSavingsInput()}
-function renderSavingsTable(){const tbody=document.getElementById('savings-tbody');let running=0;tbody.innerHTML=MONTHS.map(m=>{const row=S.savingsTable[m]||{income:'',expenses:'',saved:'',note:''};if(row.saved)running+=parseFloat(row.saved)||0;return`<tr><td>${m}</td><td><input type="number" value="${row.income}" placeholder="—" onchange="updateSavingsRow('${m}','income',this.value)" style="width:70px"></td><td><input type="number" value="${row.expenses}" placeholder="—" onchange="updateSavingsRow('${m}','expenses',this.value)" style="width:70px"></td><td><input type="number" value="${row.saved}" placeholder="—" onchange="updateSavingsRow('${m}','saved',this.value)" style="width:70px"></td><td style="color:${running>0?'#e8c87a':'var(--text3)'}">${running>0?fmtMoney(running):'—'}</td><td><input type="text" value="${row.note}" placeholder="note…" onchange="updateSavingsRow('${m}','note',this.value)" style="width:90px"></td></tr>`}).join('')}
-function updateSavingsRow(month,field,val){if(!S.savingsTable[month])S.savingsTable[month]={};S.savingsTable[month][field]=val}
-function saveSavingsTable(){save();const b=event.target;b.textContent='Saved!';setTimeout(()=>b.textContent='Save table',1500)}
-function renderAllocation(){renderAllocationFromInputs(S.savedAmount||0,S.income||0,S.expenses||0)}
-function renderAllocationFromInputs(saved,income,expenses){const surplus=income-expenses,proj=saved+surplus*22,goals=[{label:'TR fees',amount:6100,color:'#e05c4a'},{label:'PTE exam',amount:400,color:'#5ca87a'},{label:'NAATI exam',amount:800,color:'#5a8ec8'},{label:'Personal buffer',amount:5000,color:'#e8c87a'},{label:'Masters sem 1',amount:21200,color:'#d4894a'}];let rem=Math.max(0,proj);const el=document.getElementById('goal-allocation');if(!el)return;el.innerHTML=goals.map(g=>{const filled=Math.min(rem,g.amount),pct=Math.min(100,Math.round(filled/g.amount*100));rem=Math.max(0,rem-g.amount);return`<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:11px;font-family:var(--font-mono);margin-bottom:4px"><span style="color:var(--text2)">${g.label}</span><span style="color:var(--text)">${fmtMoney(Math.round(filled))} / ${fmtMoney(g.amount)}</span></div><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${g.color}"></div></div></div>`}).join('')}
-function renderJournal(){const el=document.getElementById('journal-log'),log=(S.log||[]).slice().reverse();if(!log.length){el.innerHTML='<div class="empty-state">No entries yet.<br>Save your first day using the Today tab.</div>';return}el.innerHTML=log.map(e=>{const done=(e.tasks||[]).filter(t=>t.done).length,total=(e.tasks||[]).length;return`<div class="log-entry"><div class="log-date"><span>${fmtDate(e.date)}</span><span class="log-tasks-done">${done}/${total} tasks</span></div>${e.savings!==undefined?`<div style="font-size:10px;font-family:var(--font-mono);color:var(--text3);margin-bottom:4px">savings: ${fmtMoney(e.savings)}</div>`:''}<div class="log-text">${e.note||'<em style="color:var(--text3)">no note</em>'}</div></div>`}).join('')}
-function showPanel(name,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('panel-'+name).classList.add('active');if(btn)btn.classList.add('active');if(name==='savings'){delete document.getElementById('inp-saved').dataset.loaded;delete document.getElementById('inp-income').dataset.loaded;delete document.getElementById('inp-expenses').dataset.loaded;renderSavingsCalc();renderSavingsTable();renderAllocation()}}
-load();render();
+function schedSave(){ clearTimeout(schedTimer); schedTimer=setTimeout(save,1000); }
+
+function render(){
+  const now = new Date();
+  const h = now.getHours();
+  document.getElementById('streak-num').textContent = S.streak||0;
+  document.getElementById('date-display').textContent = fmtDate(todayStr());
+  renderSummary(); renderTasks(); renderGoals(); renderSavingsCalc(); renderSavingsTable(); renderAllocation(); renderJournal();
+}
+
+function renderSummary(){
+  const done = S.tasks.filter(t=>t.done).length;
+  const total = S.tasks.length;
+  const saved = S.savedAmount||0;
+  const needed = 33500;
+  const surplus = (S.income||0)-(S.expenses||0);
+  const months = 22;
+  const proj = saved + surplus*months;
+  const pct = Math.min(100,Math.round(saved/needed*100));
+  document.getElementById('summary-grid').innerHTML = `
+    <div class="summary-card">
+      <div class="s-label">today</div>
+      <div class="s-value">${done}/${total}</div>
+      <div class="s-sub">tasks done</div>
+    </div>
+    <div class="summary-card">
+      <div class="s-label">saved</div>
+      <div class="s-value">${fmtMoney(saved)}</div>
+      <div class="s-sub">${pct}% of ${fmtMoney(needed)}</div>
+    </div>
+    <div class="summary-card">
+      <div class="s-label">monthly surplus</div>
+      <div class="s-value">${surplus>0?fmtMoney(surplus):'—'}</div>
+      <div class="s-sub">income − expenses</div>
+    </div>
+    <div class="summary-card ${proj>=needed?'good':'warn'}">
+      <div class="s-label">projected mar 2027</div>
+      <div class="s-value">${fmtMoney(Math.max(0,proj))}</div>
+      <div class="s-sub">${proj>=needed?'on track':'needs boost'}</div>
+    </div>`;
+}
+
+function renderTasks(){
+  const el = document.getElementById('task-list');
+  if(!S.tasks.length){ el.innerHTML='<div class="empty-state">No tasks. Add one below.</div>'; return; }
+  el.innerHTML = S.tasks.map(t=>`
+    <div class="task-item">
+      <input type="checkbox" class="task-cb" ${t.done?'checked':''} onchange="toggleTask('${t.id}',this.checked)">
+      <span class="task-label${t.done?' done':''}">${t.label}</span>
+      <span class="task-tag ${t.tag}">${t.tag.toUpperCase()}</span>
+      ${t.custom?`<button class="task-remove" onclick="removeTask('${t.id}')" title="Remove">×</button>`:''}
+    </div>`).join('');
+  const done=S.tasks.filter(t=>t.done).length;
+  document.getElementById('tasks-done-count').textContent = `${done} of ${S.tasks.length} done`;
+  const n=document.getElementById('today-note');
+  if(n && n.value!==S.todayNote) n.value=S.todayNote||'';
+}
+
+function toggleTask(id,checked){
+  const t=S.tasks.find(x=>x.id===id);
+  if(t){t.done=checked; renderTasks(); renderSummary(); schedSave();}
+}
+function removeTask(id){
+  S.tasks=S.tasks.filter(t=>t.id!==id);
+  renderTasks(); schedSave();
+}
+function addTask(){
+  const label=prompt('Task name:'); if(!label||!label.trim()) return;
+  const tagRaw=prompt('Category (pte / naati / tr / savings / masters / other):','other')||'other';
+  const tag=tagRaw.trim().toLowerCase().replace('masters','masters');
+  S.tasks.push({id:'c'+Date.now(),label:label.trim(),tag,done:false,custom:true});
+  renderTasks(); schedSave();
+}
+function resetTasks(){
+  if(!confirm('Reset all task checkboxes for a new day?')) return;
+  S.tasks=S.tasks.map(t=>({...t,done:false}));
+  renderTasks(); schedSave();
+}
+
+function saveDay(){
+  S.todayNote=document.getElementById('today-note').value;
+  const today=todayStr();
+  const entry={date:today,note:S.todayNote,tasks:deepClone(S.tasks),savings:S.savedAmount};
+  const idx=(S.log||[]).findIndex(e=>e.date===today);
+  if(idx>=0) S.log[idx]=entry;
+  else{S.log=S.log||[];S.log.push(entry);}
+  if(S.lastSaved!==today){S.streak=(S.streak||0)+1;S.lastSaved=today;}
+  save();
+  renderSummary();
+  document.getElementById('streak-num').textContent=S.streak;
+  alert('Day saved! Great work.');
+}
+
+function renderGoals(){
+  document.getElementById('goals-list').innerHTML = GOALS.map(g=>{
+    const prog=S.goalProgress[g.id]||0;
+    const pct=Math.min(100,Math.round(prog/g.target*100));
+    const dispProg = g.type==='$'?fmtMoney(prog):`${prog}%`;
+    const dispTarget = g.type==='$'?fmtMoney(g.target):`${g.target}%`;
+    return `<div class="goal-item">
+      <div class="goal-header">
+        <div class="goal-name">${g.name}</div>
+        <div class="goal-amount">${dispProg} / ${dispTarget}</div>
+      </div>
+      <div class="goal-deadline">Deadline: ${g.deadline}</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${g.color}"></div></div>
+      <div class="bar-meta"><span>${pct}% complete</span><span>${dispTarget}</span></div>
+      <div class="goal-update">
+        <input type="number" id="gi-${g.id}" placeholder="${g.type==='$'?'amount ($)':'percent (%)'}">
+        <button onclick="updateGoal('${g.id}')">Update</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function updateGoal(id){
+  const v=parseFloat(document.getElementById('gi-'+id).value);
+  if(isNaN(v)||v<0) return;
+  S.goalProgress[id]=v;
+  if(id==='buf'||id==='tr'||id==='mast') S.savedAmount=(S.goalProgress.buf||0);
+  document.getElementById('gi-'+id).value='';
+  renderGoals(); renderSummary(); renderAllocation(); save();
+}
+
+function onSavingsInput(){
+  const saved=parseFloat(document.getElementById('inp-saved').value)||0;
+  const income=parseFloat(document.getElementById('inp-income').value)||0;
+  const expenses=parseFloat(document.getElementById('inp-expenses').value)||0;
+  const surplus=income-expenses;
+  const proj=saved+surplus*22;
+  const needed=33500;
+  const min=Math.ceil((needed-saved)/22);
+  let html='';
+  if(income>0||saved>0){
+    if(proj>=needed) html=`<div class="alert alert-ok">On track — projected ${fmtMoney(proj)} by Mar 2027 (${fmtMoney(proj-needed)} buffer)</div>`;
+    else html=`<div class="alert alert-warn">Shortfall of ${fmtMoney(needed-proj)}. Need ~${fmtMoney(min)}/mo to stay on track.</div>`;
+  }
+  document.getElementById('savings-alert').innerHTML=html;
+  renderAllocationFromInputs(saved,income,expenses);
+}
+function saveSavings(){
+  const saved=parseFloat(document.getElementById('inp-saved').value);
+  const income=parseFloat(document.getElementById('inp-income').value);
+  const expenses=parseFloat(document.getElementById('inp-expenses').value);
+  if(!isNaN(saved)){S.savedAmount=saved;S.goalProgress.buf=saved;}
+  if(!isNaN(income)) S.income=income;
+  if(!isNaN(expenses)) S.expenses=expenses;
+  save(); renderSummary(); renderGoals(); renderAllocation();
+  const b=event.target; b.textContent='Saved!'; setTimeout(()=>b.textContent='Save',1500);
+}
+
+function renderSavingsCalc(){
+  const si=document.getElementById('inp-saved');
+  const ii=document.getElementById('inp-income');
+  const ei=document.getElementById('inp-expenses');
+  if(si&&!si.dataset.loaded){si.value=S.savedAmount||'';si.dataset.loaded='1';}
+  if(ii&&!ii.dataset.loaded){ii.value=S.income||'';ii.dataset.loaded='1';}
+  if(ei&&!ei.dataset.loaded){ei.value=S.expenses||'';ei.dataset.loaded='1';}
+  onSavingsInput();
+}
+
+function renderSavingsTable(){
+  const tbody=document.getElementById('savings-tbody');
+  let running=0;
+  tbody.innerHTML=MONTHS.map((m,i)=>{
+    const row=S.savingsTable[m]||{income:'',expenses:'',saved:'',note:''};
+    if(row.saved) running+=parseFloat(row.saved)||0;
+    return `<tr>
+      <td>${m}</td>
+      <td><input type="number" value="${row.income}" placeholder="—" onchange="updateSavingsRow('${m}','income',this.value)" style="width:70px"></td>
+      <td><input type="number" value="${row.expenses}" placeholder="—" onchange="updateSavingsRow('${m}','expenses',this.value)" style="width:70px"></td>
+      <td><input type="number" value="${row.saved}" placeholder="—" onchange="updateSavingsRow('${m}','saved',this.value)" style="width:70px"></td>
+      <td style="color:${running>0?'#e8c87a':'var(--text3)'}">${running>0?fmtMoney(running):'—'}</td>
+      <td><input type="text" value="${row.note}" placeholder="note…" onchange="updateSavingsRow('${m}','note',this.value)" style="width:90px"></td>
+    </tr>`;
+  }).join('');
+}
+function updateSavingsRow(month,field,val){
+  if(!S.savingsTable[month]) S.savingsTable[month]={};
+  S.savingsTable[month][field]=val;
+}
+function saveSavingsTable(){ save(); const b=event.target;b.textContent='Saved!';setTimeout(()=>b.textContent='Save table',1500); }
+
+function renderAllocation(){
+  const saved=S.savedAmount||0;
+  const surplus=(S.income||0)-(S.expenses||0);
+  renderAllocationFromInputs(saved,S.income||0,S.expenses||0);
+}
+function renderAllocationFromInputs(saved,income,expenses){
+  const surplus=income-expenses;
+  const proj=saved+surplus*22;
+  const goals=[
+    {label:'TR fees',amount:6100,color:'#e05c4a'},
+    {label:'PTE exam',amount:400,color:'#5ca87a'},
+    {label:'NAATI exam',amount:800,color:'#5a8ec8'},
+    {label:'Personal buffer',amount:5000,color:'#e8c87a'},
+    {label:'Masters sem 1',amount:21200,color:'#d4894a'},
+  ];
+  let rem=Math.max(0,proj);
+  const el=document.getElementById('goal-allocation');
+  if(!el) return;
+  el.innerHTML=goals.map(g=>{
+    const filled=Math.min(rem,g.amount);
+    const pct=Math.min(100,Math.round(filled/g.amount*100));
+    rem=Math.max(0,rem-g.amount);
+    return `<div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:11px;font-family:var(--font-mono);margin-bottom:4px">
+        <span style="color:var(--text2)">${g.label}</span>
+        <span style="color:var(--text)">${fmtMoney(Math.round(filled))} / ${fmtMoney(g.amount)}</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${g.color}"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function renderJournal(){
+  const el=document.getElementById('journal-log');
+  const log=(S.log||[]).slice().reverse();
+  if(!log.length){el.innerHTML='<div class="empty-state">No entries yet.<br>Save your first day using the Today tab.</div>';return;}
+  el.innerHTML=log.map(e=>{
+    const done=(e.tasks||[]).filter(t=>t.done).length;
+    const total=(e.tasks||[]).length;
+    return `<div class="log-entry">
+      <div class="log-date">
+        <span>${fmtDate(e.date)}</span>
+        <span class="log-tasks-done">${done}/${total} tasks</span>
+      </div>
+      ${e.savings!==undefined?`<div style="font-size:10px;font-family:var(--font-mono);color:var(--text3);margin-bottom:4px">savings at time: ${fmtMoney(e.savings)}</div>`:''}
+      <div class="log-text">${e.note||'<em style="color:var(--text3)">no note</em>'}</div>
+    </div>`;
+  }).join('');
+}
+
+function showPanel(name,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  if(btn) btn.classList.add('active');
+  if(name==='savings'){
+    delete document.getElementById('inp-saved').dataset.loaded;
+    delete document.getElementById('inp-income').dataset.loaded;
+    delete document.getElementById('inp-expenses').dataset.loaded;
+    renderSavingsCalc();
+    renderSavingsTable();
+    renderAllocation();
+  }
+}
+
+load();
+render();
 </script>
 </body>
 </html>
